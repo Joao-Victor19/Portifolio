@@ -72,3 +72,7 @@ header .navegacao primaria li a{
     font-weight: 600;
     color: rgb(199, 196, 196);
 }
+
+.section-div img{
+    max-width: 100%;
+}
