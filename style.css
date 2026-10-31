@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet');
 
 * {
     padding: 0;
@@ -17,7 +17,7 @@ body{
 /*Margem*/
 
 header{
-    background-color: #dde1e5;
+    background-color: #090909;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -27,15 +27,15 @@ header{
 
 /*Nome 'Joao'*/
 header h1{
-    color: #070707;
+    color: #e2c107;
     font-size: 0.90rem;
-    font-family: "Cherry Bomb One", system-ui;
+    font-family: "Archivo Black", system-ui;
     font-weight: 400;
     font-style: normal;
 }
 /*Nome Santos*/
 header span{
-    color: #05b2ec;
+    color: #e2c107;
 
 }
 
@@ -47,9 +47,9 @@ header .navegacao-primaria{
 
 header .navegacao-primaria li a{
     padding: 9px;
-    color: #05a1d5;
-    font-size: 1.3rem;
-    font-family: "Cherry Bomb One", system-ui;
+    color: #e2c107;
+    font-size: 0.9rem;
+    font-family: "Archivo Black", system-ui;
     font-weight: 400;
     font-style: normal;
 }
@@ -58,7 +58,8 @@ header .navegacao-primaria li a{
 
  /*BODY*/
 .section-div {
-    background-color: #d7dfe5;
+    animation: inicializar .7s forwards;
+    background-color: #020202;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-around;
@@ -76,11 +77,11 @@ header .navegacao-primaria li a{
 }
     /*OLA*/
 .section-div div h2.sim{
-  font-family: "Cherry Bomb One", system-ui;
+  font-family: "Archivo Black", system-ui;
   font-weight: 400;
   font-size: xx-large;
   font-style: normal;
-  color: #312e2e;
+  color: #e2c107;
         position: relative;     
         left: auto;         
         top: auto;
@@ -88,9 +89,9 @@ header .navegacao-primaria li a{
 }
     /*Futuro*/
 .section-div div h2{
-  font-family: 'Cherry Bomb One', system-ui;
+  font-family: 'Archivo Black', system-ui;
   font-weight: 60;
-  color: #0484f4;
+  color: #f7f9f9;
         position: relative;     
         left: auto;         
         top: -40px;
@@ -110,9 +111,9 @@ header .navegacao-primaria li a{
 }
 /*-----------------------------------------------------*/
 .section-div p{
-font-family: 'Cherry Bomb One', system-ui;
+font-family: 'Archivo Black', system-ui;
     font-weight: 60;
-    color: #0484f4;
+    color: #f7f9f9;
         position: relative;     
         left: auto;         
         top: -50px;
@@ -120,12 +121,27 @@ font-family: 'Cherry Bomb One', system-ui;
 
 /*CV*/
 .section-div a{
-    font-family: 'Cherry Bomb One', system-ui;
+    font-family: 'Archivo Black', system-ui;
     justify-self: start;
-    color:#0484f4 ;
+    color:#e2c107 ;
     position: relative;           
     top: -30px;
     padding: 15px 40px;
     border-radius: 30px;
-    border:  2px solid #0484f4;
-} 
+    border:  2px solid #e2c107;
+}
+
+/*-----------------------------------------------------*/
+
+@keyframes inicializar {
+
+    from{
+        opacity:0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    
+}
