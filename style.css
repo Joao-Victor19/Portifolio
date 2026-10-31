@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet');
 
 * {
     padding: 0;
@@ -9,48 +9,56 @@
 
 body{
 
-    max-width: 1200px;
+    max-width: 1920px;
     margin: 0 auto;
 
 }
 
-/* HEADER */
+/*Margem*/
 
 header{
-    background-color: rgb(54, 52, 52);
+    background-color: #dde1e5;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    
 }
 
+/*Nome 'Joao'*/
 header h1{
-    color: rgb(129, 34, 237);
-    font-size: 2.5rem;
+    color: #070707;
+    font-size: 0.90rem;
+    font-family: "Cherry Bomb One", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
-
+/*Nome Santos*/
 header span{
-    color: aliceblue;
+    color: #05b2ec;
 
 }
 
-header .navegacao primaria{
+header .navegacao-primaria{
     display: flex;
     gap: 10px;
     align-items: center;
-
 }
 
-header .navegacao primaria li a{
-    padding: 10px;
-    color: aliceblue;
+header .navegacao-primaria li a{
+    padding: 9px;
+    color: #05a1d5;
     font-size: 1.3rem;
+    font-family: "Cherry Bomb One", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
-/* Dowload cv secao*/
+/*-----------------------------------------------------*/
 
+ /*BODY*/
 .section-div {
-    background-color: black;
+    background-color: #d7dfe5;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-around;
@@ -66,13 +74,58 @@ header .navegacao primaria li a{
     display: grid;
     gap: 30px;
 }
-
-.section-div div h2{
-    font-family: fantasy;
-    font-weight: 600;
-    color: rgb(199, 196, 196);
+    /*OLA*/
+.section-div div h2.sim{
+  font-family: "Cherry Bomb One", system-ui;
+  font-weight: 400;
+  font-size: xx-large;
+  font-style: normal;
+  color: #312e2e;
+        position: relative;     
+        left: auto;         
+        top: auto;
+    
 }
+    /*Futuro*/
+.section-div div h2{
+  font-family: 'Cherry Bomb One', system-ui;
+  font-weight: 60;
+  color: #0484f4;
+        position: relative;     
+        left: auto;         
+        top: -40px;
+}
+/*-----------------------------------------------------*/
 
+/*FOTO*/
 .section-div img{
     max-width: 100%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+        position: relative;     
+        left: 200px;         
+        top: 40px;
 }
+/*-----------------------------------------------------*/
+.section-div p{
+font-family: 'Cherry Bomb One', system-ui;
+    font-weight: 60;
+    color: #0484f4;
+        position: relative;     
+        left: auto;         
+        top: -50px;
+}
+
+/*CV*/
+.section-div a{
+    font-family: 'Cherry Bomb One', system-ui;
+    justify-self: start;
+    color:#0484f4 ;
+    position: relative;           
+    top: -30px;
+    padding: 15px 40px;
+    border-radius: 30px;
+    border:  2px solid #0484f4;
+} 
