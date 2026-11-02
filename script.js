@@ -70,3 +70,4 @@ document.querySelectorAll('.projeto-slider').forEach((slider, i) => {
     // atraso diferente em cada card para não trocarem todos ao mesmo tempo
     setTimeout(() => setInterval(proxima, 3500), i * 800);
 });
+

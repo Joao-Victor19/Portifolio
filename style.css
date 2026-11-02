@@ -72,6 +72,47 @@ header .navegacao-primaria li a{
     font-style: normal;
 }
 
+.navegacao-primaria a {
+  position: relative;
+  text-decoration: none;       /* tira o sublinhado fixo */
+  color: #e6c200;
+  padding: 6px 0;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* linha que vai crescer */
+.navegacao-primaria a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navegacao-primaria a:hover {
+  color: #fff;
+  transform: translateY(-3px);  /* sobe um pouquinho */
+}
+
+.navegacao-primaria a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.navegacao-primaria a::after { left: 0; }
+.navegacao-primaria a:hover::after { width: 0%; }
+
+.navegacao-primaria a {
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.navegacao-primaria a:hover {
+  background: #e6c200;
+  color: #111;
+}
 /*-----------------------------------------------------*/
 
  /*BODY*/
@@ -495,3 +536,297 @@ main img{
      
 }
 /*=================================================================================*/
+
+    /*SKILLS*/
+
+.skills {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.skills_titulo {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.skills_titulo h1 {
+  color: #e6c200;
+}
+
+.skills_grid {
+  display: grid;
+  font-family: 'Archivo Black', system-ui;
+  grid-template-columns: repeat(2, 1fr);  
+  gap: 30px;
+  max-width: 1000px;                      
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 700px) {
+  .skills_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skills_card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 24px;
+  padding: 30px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.skills_card:hover {
+  transform: translateY(-6px);
+  border-color: #e6c200;
+}
+
+.skills_card h2 {
+  color: #e6c200;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.skills_card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skills_card li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #2a2a2a;
+  color: #fff;
+}
+
+.skills_card li:last-child {
+  border-bottom: none;
+}
+
+.skills_card li i {
+  width: 24px;
+  text-align: center;
+  color: #e6c200;
+  font-size: 1.2rem;
+}
+
+.nivel {
+  margin-left: auto;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(230, 194, 0, 0.15);
+  color: #e6c200;
+}
+
+
+/*=================================================================================*/
+
+/*Contatos ou Contats*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+.contact {
+  width: 100%;
+  background: #000;              
+  padding: 80px 20px;
+  scroll-margin-top: 80px;       
+}
+
+.contact_container {
+  
+  max-width: 900px;
+  font-family: 'Archivo Black', system-ui;
+  margin: 0 auto;
+}
+
+.contact_titulo {
+  text-align: center;
+  color: #e2c107;
+  margin-bottom: 50px;
+}
+
+.contact_titulo p{
+  text-align: center;
+  color: #f7f9f9;
+  margin-bottom: 45px;
+}
+
+.contact_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.contact_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 24px 16px;
+  background: #000;
+  border: 1px solid #e6c200;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.contact_card i {
+  font-size: 1.8rem;
+  color: #e6c200;
+  transition: transform 0.3s ease;
+}
+
+.contact_card h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-family: inherit;
+}
+
+.contact_card p {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.contact_card:hover {
+  transform: translateY(-5px);
+  background: #111;
+  box-shadow: 0 8px 20px rgba(230, 194, 0, 0.2);
+}
+
+.contact_card:hover i {
+  transform: scale(1.15);
+}
+
+@media (max-width: 700px) {
+  .contact_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*=================================================================================*/
+
+ /*RODA PÉ*/
+
+.rodape {
+  width: 100%;
+  background: #000;
+  border-top: 1px solid #e6c200;
+  padding: 16px 20px;              
+  font-family: inherit;             
+}
+
+.rodape_container {
+  font-family: 'Archivo Black', system-ui;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+
+.rodape_logo {
+  margin: 0;
+  color: #fff;
+  font-size: 1.05rem;
+  font-family: inherit;
+}
+
+.rodape_logo span {
+  color: #e6c200;
+}
+
+.rodape_links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rodape_links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-family: inherit;
+  transition: color 0.3s ease;
+}
+
+.rodape_links a:hover {
+  color: #e6c200;
+}
+
+.rodape_social {
+  display: flex;
+  gap: 10px;
+}
+
+.rodape_social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;                      
+  height: 30px;
+  border: 1px solid #e6c200;
+  border-radius: 50%;
+  color: #e6c200;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.rodape_social a:hover {
+  background: #e6c200;
+  color: #000;
+  transform: translateY(-3px);
+}
+
+.rodape_topo {
+  order: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #e6c200;
+  color: #000;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.rodape_topo:hover {
+  transform: translateY(-3px);
+}
+
+.rodape_copy {
+  order: 5;
+  flex-basis: 100%;                 
+  margin: 0;
+  text-align: center;
+  font-size: 0.7rem;
+  opacity: 0.5;
+  color: #fff;
+  font-family: inherit;
+}
+
+
+@media (max-width: 800px) {
+  .rodape_container {
+    justify-content: center;
+    text-align: center;
+  }
+}
