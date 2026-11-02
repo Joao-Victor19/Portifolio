@@ -7,6 +7,10 @@
     list-style: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     background-color: #020202;
     max-width: 1920px;
@@ -24,6 +28,20 @@ header{
     justify-content: space-around;
     
 }
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(9, 9, 9, 0.6);   /* o 0.6 é a opacidade: 0 = invisível, 1 = sólido */
+    backdrop-filter: blur(8px);             /* desfoca o que passa por trás */
+} 
+
+
+section, article {
+    scroll-margin-top: 50px;   
+}
+
 
 /*Nome 'Joao'*/
 header h1{
@@ -176,11 +194,10 @@ main{
 }
 
 main .sobre{
-    margin-top: 60px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
-    justify-content: center;
+    grid-template-columns: minmax(280px, 500px) 1fr;
+    gap: 60px;
+    align-items: center;
     padding: 40px;
 }
 
@@ -204,10 +221,9 @@ main img{
 /*=================================================================================*/
 
 
-/*Titulos Sobre min e Perfil profissional*/
 .sobre_titulo{
     font-family: 'Archivo Black', system-ui;
-    margin: 115px;
+    margin: 40px 0 30px;
     grid-column: 1/-1;
     text-align: center;
     color: #f7f9f9;
@@ -302,41 +318,180 @@ main img{
 
 .sobreconteudo{
     font-family: 'Archivo Black', system-ui;
-    margin: 115px;
-    grid-column: 1/-1;
-    text-align: right;
-    display: flex; 
+    grid-column: 2;      
+    align-self: center;       
+    margin: 0;
+    text-align: left;
+    font-weight: 400;
     color: #f7f9f9;
 }
 
+/*WHO I AM*/
 .sobreconteudo h1{
     font-family: "Archivo Black", system-ui;
     font-weight: 400;
     font-size: xx-large;
-    font-style: normal;
     color: #e2c107;
-        position: relative;     
-        left: auto;         
-        top: -650px;
+    text-align: left;        
+    margin-bottom: 20px;
 }
 
+/*About me*/
 .sobreconteudo p{
     font-family: "Archivo Black", system-ui;
     font-weight: 400;
-    font-style: normal;
+    font-size: 1.1rem;       
+    line-height: 1.6;        
+    margin-bottom: 16px;     
     color: #f7f9f9;
-        position: relative;     
-        left: 600px;         
-        top: -600px;
+}
+.sobre_info i{
+    color: #e2c107;
 }
 
-.sobre_info p{
-        font-family: "Archivo Black", system-ui;
-    font-weight: 400;
-    font-size: xx-large;
-    font-style: normal;
-    color: #f7f9f9;
-        position: relative;     
-        left: auto;         
-        top: 650px;
+/*=================================================================================*/
+
+
+.projetos {
+    background: #000;
+    padding: 80px 5%;
 }
+
+.projetos-titulo {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/*=================================================================================*/
+
+/*Header*/
+
+.projetos-titulo h1 {
+    font-family: 'Archivo Black', system-ui;
+    color: #e6b800;
+    font-size: 2.5rem;
+}
+
+.projetos-titulo p {
+    color: #f7f9f9;
+    font-family: 'Archivo Black', system-ui;
+    font-size: 0.9rem;
+    margin: 10px 0 16px;
+}
+
+.bolinhas {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.bolinhas span {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #e6b800;
+}
+
+/*=================================================================================*/
+
+/* colunas e quadrados Projeos*/
+
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projeto-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projeto-slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #111;
+}
+
+.projeto-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.projeto-slide.ativo {
+    opacity: 1;
+}
+
+.projeto-card h3 {
+    font-family: 'Archivo Black', system-ui;
+    color: #f7f9f9;
+    margin-top: 16px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .projetos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Camada que passar o mouse */
+
+.projeto-link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;                         
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e2c1076d;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-decoration: none
+}
+
+.projeto-link span {
+    padding: 12px 32px;
+    border: 2px solid var(--amarelo);
+    border-radius: 30px;
+    color: var(--amarelo);
+    font-size: 1rem;
+    transform: translateY(10px);
+    transition: transform 0.3s ease, background 0.3s, color 0.3s;
+}
+
+/* Hover: mostra a camada e sobe o botão */
+.projeto-slider:hover .projeto-link {
+    opacity: 1;
+}
+
+.projeto-slider:hover .projeto-link span {
+    transform: translateY(0);
+}
+
+/* Botão preenche de amarelo quando o mouse está nele */
+.projeto-link:hover span {
+    background: var(--amarelo);
+    color: #ffffff;
+}
+
+.projeto-link span{
+     font-family: "Archivo Black", system-ui;
+     font-weight: 400;
+     font-size: xx-large;
+     
+}
+/*=================================================================================*/

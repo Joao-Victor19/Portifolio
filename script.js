@@ -53,4 +53,20 @@ dots.forEach((dot, i) => {
   });
 });
 
+
 startAuto();
+
+// Slider dos projetos (cada card tem o seu)
+document.querySelectorAll('.projeto-slider').forEach((slider, i) => {
+    const fotos = slider.querySelectorAll('.projeto-slide');
+    let atual = 0;
+
+    function proxima() {
+        fotos[atual].classList.remove('ativo');
+        atual = (atual + 1) % fotos.length;
+        fotos[atual].classList.add('ativo');
+    }
+
+    // atraso diferente em cada card para não trocarem todos ao mesmo tempo
+    setTimeout(() => setInterval(proxima, 3500), i * 800);
+});
