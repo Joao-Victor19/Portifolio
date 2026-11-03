@@ -33,8 +33,8 @@ header {
     position: sticky;
     top: 0;
     z-index: 10;
-    background-color: rgba(9, 9, 9, 0.6);   /* o 0.6 é a opacidade: 0 = invisível, 1 = sólido */
-    backdrop-filter: blur(8px);             /* desfoca o que passa por trás */
+    background-color: rgba(9, 9, 9, 0.6);   
+    backdrop-filter: blur(8px);             
 } 
 
 
@@ -74,7 +74,7 @@ header .navegacao-primaria li a{
 
 .navegacao-primaria a {
   position: relative;
-  text-decoration: none;       /* tira o sublinhado fixo */
+  text-decoration: none;       
   color: #e6c200;
   padding: 6px 0;
   transition: color 0.3s ease, transform 0.3s ease;
@@ -94,7 +94,7 @@ header .navegacao-primaria li a{
 
 .navegacao-primaria a:hover {
   color: #fff;
-  transform: translateY(-3px);  /* sobe um pouquinho */
+  transform: translateY(-3px);  
 }
 
 .navegacao-primaria a:hover::after {
