@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+:root {
+    --amarelo: #e2c107;
+}
 
 * {
     padding: 0;
@@ -435,21 +439,65 @@ main img{
 
 /*=================================================================================*/
 
-/* colunas e quadrados Projeos*/
+/* CARROSSEL DE PROJETOS (setas + animação de slide) */
 
-
-.projetos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    max-width: 1200px;
+.projetos-carrossel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
+/* "janela" que esconde os projetos que estão fora da vista */
+.projetos-janela {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+/* trilho que desliza para os lados */
+.projetos-grid {
+    display: flex;
+    gap: 40px;
+    transition: transform 0.6s ease;
+    will-change: transform;
+}
+
+/* 3 cards por vez: (100% - 2 espaços) / 3 */
 .projeto-card {
+    flex: 0 0 calc((100% - 80px) / 3);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* Setas amarelas */
+.seta {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #e2c107;
+    background: #000;
+    color: #e2c107;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.seta:hover:not(:disabled) {
+    background: #e2c107;
+    color: #000;
+    transform: scale(1.1);
+}
+
+.seta:disabled {
+    opacity: 0.25;
+    cursor: default;
 }
 
 .projeto-slider {
@@ -483,9 +531,10 @@ main img{
     text-align: center;
 }
 
+/* Tablet e celular: 1 projeto por vez */
 @media (max-width: 900px) {
-    .projetos-grid {
-        grid-template-columns: 1fr;
+    .projeto-card {
+        flex: 0 0 100%;
     }
 }
 
@@ -534,6 +583,20 @@ main img{
      font-weight: 400;
      font-size: xx-large;
      
+}
+
+/* Celular (sem mouse): o botão "Go Page" fica sempre visível */
+@media (hover: none) {
+    .projeto-link {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.3);
+        align-items: flex-end;
+        padding-bottom: 16px;
+    }
+    .projeto-link span {
+        transform: none;
+        background: rgba(0, 0, 0, 0.6);
+    }
 }
 /*=================================================================================*/
 
@@ -829,4 +892,194 @@ html {
     justify-content: center;
     text-align: center;
   }
+}
+
+
+/*=================================================================================*/
+/*=================================================================================*/
+
+/*                     RESPONSIVO (notebook, tablet e celular)                      */
+
+/*=================================================================================*/
+/*=================================================================================*/
+
+/* Telas menores que um desktop grande: a foto da home deixa de "sair" da tela */
+@media (max-width: 1300px) {
+    .section-div img {
+        left: 0;
+        justify-self: center;
+    }
+}
+
+/* Tablet e celular */
+@media (max-width: 900px) {
+
+    /* Cabeçalho: logo em cima, menu embaixo */
+    header {
+        flex-direction: column;
+        gap: 6px;
+        padding: 8px 10px;
+    }
+
+    header .navegacao-primaria {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    header .navegacao-primaria li a {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+
+    section, article {
+        scroll-margin-top: 110px;
+    }
+
+    /* Home: tudo em uma coluna, foto primeiro */
+    .section-div {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .section-div div {
+        margin-top: 0;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .section-div div h2 {
+        top: 0;
+    }
+
+    .section-div div h2.sim {
+        font-size: x-large;
+    }
+
+    .section-div p {
+        top: 0;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .section-div a {
+        top: 0;
+        justify-self: center;
+        padding: 12px 30px;
+    }
+
+    .section-div img {
+        order: -1;
+        width: min(280px, 70vw);
+        height: min(280px, 70vw);
+        left: 0;
+        top: 0;
+        justify-self: center;
+    }
+
+    /* Sobre mim: uma coluna */
+    main .sobre {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .sobre_titulo {
+        margin: 20px 0 10px;
+    }
+
+    .sobre_titulo h1 {
+        font-size: 2rem;
+    }
+
+    .slider {
+        width: 100%;
+        max-width: 400px;
+        justify-self: center;
+    }
+
+    .slides {
+        border-radius: 30px;
+    }
+
+    .sobreconteudo {
+        grid-column: 1;
+    }
+
+    .sobreconteudo h1 {
+        font-size: x-large;
+    }
+
+    .sobreconteudo p {
+        font-size: 0.95rem;
+    }
+
+    /* Projetos / Skills */
+    .projetos {
+        padding: 60px 4%;
+    }
+
+    .projetos-titulo {
+        margin-bottom: 40px;
+    }
+
+    .projetos-titulo h1 {
+        font-size: 2rem;
+    }
+
+    .projetos-carrossel {
+        gap: 8px;
+    }
+
+    .projetos-grid {
+        gap: 20px;
+    }
+
+    .seta {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+
+    .projeto-link span {
+        font-size: 1.1rem;
+        padding: 8px 22px;
+    }
+
+    .skills_card {
+        padding: 20px;
+    }
+
+    .contact {
+        padding: 60px 20px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 0.8rem;
+    }
+
+    header .navegacao-primaria li a {
+        padding: 5px 8px;
+        font-size: 0.7rem;
+    }
+
+    .projeto-card h3 {
+        font-size: 1rem;
+    }
+
+    .skills_grid {
+        padding: 0;
+    }
+
+    .skills_card h2 {
+        font-size: 1.1rem;
+    }
+
+    .contact_titulo h1 {
+        font-size: 1.8rem;
+    }
 }
